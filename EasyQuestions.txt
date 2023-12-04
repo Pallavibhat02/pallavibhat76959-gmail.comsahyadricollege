@@ -29,19 +29,19 @@ step 4: Finally we will return the answer list.
 	public static int pascaltri(int n, int r)
 	{
 
-              long res=1;
+              long result=1;
               for(int i=0;i<r;i++)
               {
-                     res=res*(n-i);
-                     res=res/(i+1);
+                     result=res*(n-i);
+                     result=res/(i+1);
                }
-              return (int) res;
+              return (int) result;
         }
   
 	public static List<List<Integer>>pascaltriangle(int n)
 	{
 
-           List<List<Integer>> ans= new ArrayList<>();
+           List<List<Integer>> answer= new ArrayList<>();
 
 	   // store the entire pascal's triangle
            for(int row=1;row<=n;row++)
@@ -51,17 +51,18 @@ step 4: Finally we will return the answer list.
               {
                 templst.add(nCr(row-1,col-1));
               }
-              ans.add(templst);
+              answer.add(templst);
 
          }
-        return ans;
+        return answer;
 
 
       }
    public static void main(String[] args)
    {
       Scanner sc= new Scanner(System.in);
-
+	int n=sc.nextInt();
+	List<List<Integer>> ans = pascalTriangle(n);
               for (List<Integer> it : ans) {
             for (int ele : it) {
                 System.out.print(ele + " ");
