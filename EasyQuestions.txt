@@ -1,0 +1,74 @@
+Easy 3] Given an integer numRows,return the first numRows of Pascal's triangle.
+
+Approch:
+ 
+Step 1: First, we will run a loop from 1 to n.
+step 2: We will use a loop to iterate over each column from 1 to n and inside the nested loops,we will do the       following steps.
+	
+	1]First we will consider row-1 as n and col-1 as r.
+
+	2]After that, we will simply calculate the value of the combination using a loop.
+
+	3]The loop will run from 0 to r.And in each iteration we will multiply(n-i) with the result and divide the result and divide the result by(i+1).
+
+	4]Finally we will add the element to a temorary list.
+
+Step 3: After calculating all the elements for all coloumns of a row,we will add the temorary list to our final answer list.
+
+step 4: Finally we will return the answer list.
+
+
+      CODE:
+
+
+  import java.util.*;
+  import java.util.Scanner;
+
+  public class pascal{
+ 
+	public static int pascaltri(int n, int r)
+	{
+
+              long res=1;
+              for(int i=0;i<r;i++)
+              {
+                     res=res*(n-i);
+                     res=res/(i+1);
+               }
+              return (int) res;
+        }
+  
+	public static List<List<Integer>>pascaltriangle(int n)
+	{
+
+           List<List<Integer>> ans= new ArrayList<>();
+
+	   // store the entire pascal's triangle
+           for(int row=1;row<=n;row++)
+           {
+              List<Integer> templst= new ArrayList<>();// temporary list
+              for(int col=1;col<=row;col++)
+              {
+                templst.add(nCr(row-1,col-1));
+              }
+              ans.add(templst);
+
+         }
+        return ans;
+
+
+      }
+   public static void main(String[] args)
+   {
+      Scanner sc= new Scanner(System.in);
+
+              for (List<Integer> it : ans) {
+            for (int ele : it) {
+                System.out.print(ele + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+      
