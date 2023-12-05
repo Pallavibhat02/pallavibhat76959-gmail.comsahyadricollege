@@ -42,6 +42,6 @@ static int countDigitOne(int n)
         Scanner sc=new Scanner(System.in);
 	int n=sc.nextInt();
         int answer = counterDigitOne(n);
-        System.out.println("The total number of digit 1 appearing in all numbers up to " + n + " is: " + answer);
+        System.out.println(answer);
     }
 }
