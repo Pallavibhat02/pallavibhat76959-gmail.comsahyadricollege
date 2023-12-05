@@ -6,11 +6,11 @@ step 1] Iterate through each digit place (units, tens, hundreds, etc.) of the nu
 
 step 3] Calculate the count of digit 1 at the current place using the following rules:
 
-step 4] If currentDigit is 0, the count at the current place is leftPart * 10^i.
+step 4] If currentDigit is 0, the count at the current place is leftPart * 10^j.
 
-step 5] If currentDigit is 1, the count at the current place is leftPart * 10^i + rightPart + 1.
+step 5] If currentDigit is 1, the count at the current place is leftPart * 10^j + rightPart + 1.
 
-step 6]If currentDigit is greater than 1, the count at the current place is (leftPart + 1) * 10^i.
+step 6]If currentDigit is greater than 1, the count at the current place is (leftPart + 1) * 10^j.
 Accumulate the count for each digit place.
 
 
@@ -20,19 +20,19 @@ import java.util.*;
 
 public class CountDigitOne {
 
-    public static int countDigitOne(int n) {
-        int count = 0;
-        for (long i = 1; i <= n; i *= 10) {
-            long divider = i * 10;
-            count += (n / divider) * i + Math.min(Math.max(n % divider - i + 1, 0), i);
+    public static int counterDigitOne(int n) {
+        int counter = 0;
+        for (long j = 1; j <= n; j *= 10) {
+            long divider = j * 10;
+            counter += (n / divider) * j+ Math.min(Math.max(n % divider - j + 1, 0), j);
         }
-        return count;
+        return counter;
     }
 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
 	int n=sc.nextInt();
-        int result = countDigitOne(n);
-        System.out.println("The total number of digit 1 appearing in all numbers up to " + n + " is: " + result);
+        int answer = counterDigitOne(n);
+        System.out.println("The total number of digit 1 appearing in all numbers up to " + n + " is: " + answer);
     }
 }
