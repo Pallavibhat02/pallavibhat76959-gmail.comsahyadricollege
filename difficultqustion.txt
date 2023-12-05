@@ -18,16 +18,25 @@ CODE:
 import java.util.Scanner;
 import java.util.*;
 
-public class CountDigitOne {
-
-    public static int counterDigitOne(int n) {
-        int counter = 0;
-        for (long j = 1; j <= n; j *= 10) {
-            long divider = j * 10;
-            counter += (n / divider) * j+ Math.min(Math.max(n % divider - j + 1, 0), j);
-        }
-        return counter;
+class Counter
+{
+     
+// function to count 
+// the frequency of 1.
+static int countDigitOne(int n)
+{
+    int counter = 0;
+    for (int j = 1;
+             j <= n; j *= 10) 
+    {
+        int divider = j* 10;
+        counter += (n / divider) * j + 
+                Math.min(Math.max(n % 
+                         divider - j + 
+                            1, 0), j);
     }
+    return counter;
+}
 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
